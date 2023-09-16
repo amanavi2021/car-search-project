@@ -1,6 +1,16 @@
+import { useState } from "react";
+import Modal from "components/Modal";
+import AdvertModal from "components/AdvertModal/AdvertModal";
+import getCity from "utils/getCity";
+import getCountry from "utils/getCountry";
+import Button from "components/Button";
+
 
 export default function AdvertListItem({ advert }) {
     
+    const [showModal, setShowModal] = useState(false);
+    const toggleModal = () => setShowModal(!showModal);
+
     const {
         id,
         year,
@@ -20,22 +30,10 @@ export default function AdvertListItem({ advert }) {
         mileage,
     } = advert;
     
-    const getCountry = address => {
-        const addressArray = address.replace(/,/gi, '').split(' ');
-        return addressArray[addressArray.length - 1];
-    };
+    
 
-    const getSity = address => {
-        const addressArray = address.replace(/,/gi, '').split(' ');
-        if (addressArray.length < 2) {
-          return ""
-        }
-        return addressArray[addressArray.length - 2];
-    };
-
-
-    const country = getCountry(address);
-    const sity = getSity(address);
+     const country = getCountry(address);
+    const city = getCity(address);
     
 
     return (
@@ -51,7 +49,7 @@ export default function AdvertListItem({ advert }) {
                     <p>{rentalPrice}</p>
                 </div>
                 <p>
-                    <span>{sity} | </span>
+                    <span>{city} | </span>
                     <span>{country} | </span>
                     <span>{rentalCompany} | </span>
 
@@ -65,9 +63,13 @@ export default function AdvertListItem({ advert }) {
                     <span>{mileage} | </span>
                     
                 </p>
-                <button type="button">
+                {/* <Btn type="button" onClick={toggleModal}>
                     Learn more
-                </button>
+                </Btn> */}
+                <Button text={"Learn more"} onClick={toggleModal} />
+                {showModal && (<Modal onClose={toggleModal}>
+                    <AdvertModal advert={advert}/>
+                </Modal>)}
 
             </div>
         </li>

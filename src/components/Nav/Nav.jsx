@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom"; 
+import { Navigation } from "./Nav.styled";
 
 export default function Nav() {
     return (
-        <nav>
+        <Navigation>
              <NavLink to="/">
                 Home
             </NavLink>    
@@ -12,6 +13,6 @@ export default function Nav() {
             <NavLink to="/favorites">
                 Favorites
             </NavLink>
-        </nav>
+        </Navigation>
     )
 }
