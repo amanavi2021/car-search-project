@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAdverts } from './operations';
+import { getAdverts, getAdvertsByPage } from './operations';
 
 const initialState = {
   items: [],
+  currentItems: [],
   total: 0,
   isLoading: false,
   error: null,
@@ -24,6 +25,9 @@ const advertsSlice = createSlice({
       .addCase(getAdverts.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+      })
+      .addCase(getAdvertsByPage.fulfilled, (state, action) => {
+        state.currentItems = [...state.currentItems, ...action.payload];
       }),
 });
 

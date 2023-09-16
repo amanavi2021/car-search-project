@@ -1,3 +1,6 @@
+// import { Link } from 'react-router-dom';
+import getCity from 'utils/getCity';
+import getCountry from 'utils/getCountry';
 import {
   Container,
   ContainerInfo,
@@ -8,10 +11,10 @@ import {
   Description,
     InfoTitle,
     RentalConditionsList,
-  ItemValue
+    ItemValue,
+    RentalConditionsListItem, 
+  LinkPhone
 } from './AdvertModal.styled';
-import getCity from 'utils/getCity';
-import getCountry from 'utils/getCountry';
 
 export default function AdvertModal({ advert }) {
   if (!advert) {
@@ -44,6 +47,8 @@ export default function AdvertModal({ advert }) {
 
   const reg = /(?=\B(?:\d{3})+(?!\d))/g;
   const millageChanged = mileage.toString().replace(reg, ',');
+  
+    const phoneNumber = `tel:+380730000000`;
 
   return (
     <Container>
@@ -71,20 +76,23 @@ export default function AdvertModal({ advert }) {
         <div>
           <InfoTitle>Rental Conditions:</InfoTitle>
           <RentalConditionsList>
-            <li>
+            <RentalConditionsListItem>
               {minAgeArray[0]}: <ItemValue>{minAgeArray[1]}</ItemValue>
-            </li>
-            <li> {rentalConditionsArray[1]}</li>
-            <li>{rentalConditionsArray[2]}</li>
-            <li>
+            </RentalConditionsListItem>
+            <RentalConditionsListItem> {rentalConditionsArray[1]}</RentalConditionsListItem>
+            <RentalConditionsListItem>{rentalConditionsArray[2]}</RentalConditionsListItem>
+            <RentalConditionsListItem>
               Mileage: <ItemValue>{millageChanged}</ItemValue>
-            </li>
-            <li>
+            </RentalConditionsListItem>
+            <RentalConditionsListItem>
               Price: <ItemValue>{rentalPrice}</ItemValue>
-            </li>
+            </RentalConditionsListItem>
           </RentalConditionsList>
         </div>
-      </ContainerInfo>
+          </ContainerInfo>
+          <LinkPhone to={phoneNumber}>
+              Rental car
+          </LinkPhone>
     </Container>
   );
 }

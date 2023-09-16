@@ -14,3 +14,10 @@ export const Btn = styled.button`
     background-color: var(--blue-color);
    
 `;
+
+export const ImageAuto = styled.img`
+    width: 274px;
+    height: 268px;
+    object-fit: cover;
+    border-radius: 14px;
+`;

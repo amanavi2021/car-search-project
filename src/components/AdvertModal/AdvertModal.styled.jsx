@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import styled from "@emotion/styled";
+
 
 export const Container = styled.div`
     /* width: 100%;
@@ -65,12 +67,45 @@ export const InfoTitle = styled.h2`
 `;
 
 export const RentalConditionsList = styled.ul`
+  display: flex;
+  gap: 8px;
+  flex-wrap:wrap;
+  margin-top: 8px;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   line-height: calc(18/12);
+  
+`;
+
+export const RentalConditionsListItem = styled.li`
+  padding: 7px 14px;
+  background-color: #F9F9F9;
+  border-radius: 35px;
 `;
 
 export const ItemValue = styled.span`
   color: var(--blue-color);
   font-weight: 600;
-`
+`;
+
+export const LinkPhone = styled(Link)`
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    font-weight:600;
+    color: var(--white-color);
+    line-height: calc(20/14);
+    border-radius: 12px;
+    height: 44px;
+    width: 168px;
+    border: none;
+    background-color: var(--blue-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover, :focus {
+        background-color:  var(--dark-blue-color);
+    }
+`;
+

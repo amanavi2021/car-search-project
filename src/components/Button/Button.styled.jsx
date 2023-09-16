@@ -6,7 +6,6 @@ export const Btn = styled.button`
     justify-content: center;
     align-items: center;
     padding: 12px 50px;
-    text-decoration: none;
     font-weight:600;
     color: var(--white-color);
     line-height: calc(20/14);
@@ -16,7 +15,7 @@ export const Btn = styled.button`
     background-color: var(--blue-color);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover, &:focus {
+    &:hover, :focus {
         background-color:  var(--dark-blue-color);
     }
 

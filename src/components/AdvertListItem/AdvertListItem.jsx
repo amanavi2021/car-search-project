@@ -4,6 +4,7 @@ import AdvertModal from "components/AdvertModal/AdvertModal";
 import getCity from "utils/getCity";
 import getCountry from "utils/getCountry";
 import Button from "components/Button";
+import { ImageAuto } from "./AdvertListItem.styled";
 
 
 export default function AdvertListItem({ advert }) {
@@ -39,10 +40,9 @@ export default function AdvertListItem({ advert }) {
     return (
         <li>
             <div>
-                <img
+                <ImageAuto
                     src={img}
                     alt={make}
-                    width="300"
                 />
                 <div>
                     <p>{make} <span>{model}</span>, {year}</p>
@@ -63,9 +63,6 @@ export default function AdvertListItem({ advert }) {
                     <span>{mileage} | </span>
                     
                 </p>
-                {/* <Btn type="button" onClick={toggleModal}>
-                    Learn more
-                </Btn> */}
                 <Button text={"Learn more"} onClick={toggleModal} />
                 {showModal && (<Modal onClose={toggleModal}>
                     <AdvertModal advert={advert}/>
