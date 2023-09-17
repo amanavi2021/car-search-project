@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 // import { selectorAdverts, selectorCurrentAdverts } from 'redux/adverts/selectors';
-import { selectorCurrentAdverts } from 'redux/adverts/selectors';
+import {  selectorCurrentAdverts } from 'redux/adverts/selectors';
 
 import AdvertListItem from 'components/AdvertListItem';
 import { List } from './AdvertList.styled';

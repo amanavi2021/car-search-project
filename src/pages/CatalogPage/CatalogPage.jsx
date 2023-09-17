@@ -11,8 +11,8 @@ export default function CatalogPage() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-       dispatch(getAdverts());
-    }, []);
+        dispatch(getAdverts());
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleClick = () => {
         setPage(page => page + 1);
