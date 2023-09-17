@@ -4,7 +4,7 @@ import AdvertModal from "components/AdvertModal/AdvertModal";
 import getCity from "utils/getCity";
 import getCountry from "utils/getCountry";
 import Button from "components/Button";
-import { ImageAuto } from "./AdvertListItem.styled";
+import { Container, ImageAuto, TitleAuto, Model, InfoAuto } from "./AdvertListItem.styled";
 
 
 export default function AdvertListItem({ advert }) {
@@ -39,15 +39,16 @@ export default function AdvertListItem({ advert }) {
 
     return (
         <li>
-            <div>
+            <Container>
                 <ImageAuto
                     src={img}
                     alt={make}
                 />
-                <div>
-                    <p>{make} <span>{model}</span>, {year}</p>
+                <TitleAuto>
+                    <p>{make} <Model>{model}</Model>, {year}</p>
                     <p>{rentalPrice}</p>
-                </div>
+                </TitleAuto>
+                <InfoAuto>
                 <p>
                     <span>{city} | </span>
                     <span>{country} | </span>
@@ -60,15 +61,16 @@ export default function AdvertListItem({ advert }) {
                     <span>{model} | </span>
                     <span>{id} | </span>
                     {/* Power liftgate */}
-                    <span>{mileage} | </span>
                     
                 </p>
+                </InfoAuto>
+               
                 <Button text={"Learn more"} onClick={toggleModal} />
                 {showModal && (<Modal onClose={toggleModal}>
                     <AdvertModal advert={advert}/>
                 </Modal>)}
 
-            </div>
+            </Container>
         </li>
     )
     

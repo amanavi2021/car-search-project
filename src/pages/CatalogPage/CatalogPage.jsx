@@ -1,29 +1,30 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAdverts, getAdvertsByPage } from "redux/adverts/operations";
 import { useDispatch } from "react-redux"; 
 import AdvertsList from "components/AdvertsList";
-
+import { Btn } from "./CatalogPage.styled"
 
 export default function CatalogPage() {
+    const [page, setPage] = useState(2);
     
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAdverts());
-        // dispatch(getAdvertsByPage());
-    }, [dispatch]);
+       dispatch(getAdverts());
+    }, []);
 
-    const handleClick= e => {
-        dispatch(getAdvertsByPage(2))
+    const handleClick = () => {
+        setPage(page => page + 1);
+        dispatch(getAdvertsByPage({page}))
     };
 
     return (
         <div>
             <AdvertsList />
-            <button type="button" onClick={handleClick}>
+            <Btn type="button" onClick={handleClick}>
                 Load more
-            </button>
+            </Btn>
         </div>
     )
 }

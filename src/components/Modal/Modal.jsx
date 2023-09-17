@@ -1,22 +1,12 @@
 // import { useTransition } from "";
 import React, { useEffect } from "react";  
 import { createPortal } from "react-dom";
-import { ModalWindow, Backdrop } from './Modal.styled';
+import { ModalWindow, Backdrop, CrossBtn, Cross } from "./Modal.styled";
+import exit from "../../images/sprite.svg"
 
 const modalRoot = document.querySelector("#modal-root");
-console.log('modalRoot', modalRoot);
 
 export default function Modal ({ children, isOpen, onClose }) {
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         document.body.style.overflow = 'hidden';
-    //     }
-
-    //     return () => {
-    //         document.body.style.overflow = 'unset';
-    //     }
-        
-    // }, [isOpen]);
 
     useEffect(() => {
         const closeESC = (e) => {
@@ -32,15 +22,6 @@ export default function Modal ({ children, isOpen, onClose }) {
         };
     }, [onClose]);
 
-    // const modalTransition = useTransition(isOpen, {
-    //     from: { opacity: 0 },
-    //     enter: { opacity: 1 },
-    //     leave: { opacity: 1 },
-    //     config: {
-    //         duration: 500
-    //     },
-       
-    // });
     const handleBackDropClick = e => {
         if (e.currentTarget === e.target) {
             onClose();
@@ -50,6 +31,11 @@ export default function Modal ({ children, isOpen, onClose }) {
     return (createPortal(
         <Backdrop onClick={handleBackDropClick}>
             <ModalWindow>
+                <CrossBtn type='button' onClick={onClose}>
+                    <Cross width='24' height='24'>
+                        <use href={exit + "#x"}></use>
+                    </Cross>
+                </CrossBtn>
                 {children}
             </ModalWindow>
         </Backdrop>, modalRoot)

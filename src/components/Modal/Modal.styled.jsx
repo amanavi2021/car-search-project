@@ -5,7 +5,7 @@ export const ModalWindow = styled.div`
     /* height: 500px; */
     /* top: 50%; */
     left: 50%;
-    top: 150px;
+    top: 50px;
     transform: translate(-50%);
     /* min-height: 300px;
     max-width: 600px;
@@ -25,5 +25,32 @@ export const Backdrop = styled.div`
     width: 100vw;
     height: 100vw;
     background-color: rgba(0,0,0,0.5);
+
+`;
+
+export const CrossBtn = styled.button`
+position: absolute;
+top: 0;
+right: 0;
+margin-top: 16px;
+margin-right: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+border: none;
+outline: none;
+cursor: pointer;
+background-color: transparent;
+color:  var(--black-color);
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ &:hover, :focus {
+        color:  var(--dark-blue-color);
+    }
+
+`;
+
+export const Cross = styled.svg`
+
+stroke: currentColor;
 
 `;
