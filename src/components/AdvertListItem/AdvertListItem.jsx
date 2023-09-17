@@ -28,7 +28,7 @@ export default function AdvertListItem({ advert }) {
         rentalCompany,
         address,
         // rentalConditions,
-        mileage,
+        // mileage,
     } = advert;
     
     
