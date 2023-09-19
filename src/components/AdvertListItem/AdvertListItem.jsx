@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Modal from "components/Modal";
 import AdvertModal from "components/AdvertModal/AdvertModal";
 import getCity from "utils/getCity";
