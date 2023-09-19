@@ -8,7 +8,7 @@ const initialState = {
   total: 0,
   isLoading: false,
   error: null,
-  filters: { make: '', price: 0, mileageFrom: 0, mileageTo: 0 },
+  filters: { make: '', price: '', mileageFrom: '', mileageTo: '' },
 };
 
 const toggleFavorite = (state, action) => {

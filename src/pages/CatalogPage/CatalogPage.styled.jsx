@@ -12,7 +12,7 @@ export const Btn = styled.button`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 150px;
     margin-left: auto;
     margin-right: auto;
@@ -28,6 +28,4 @@ export const Btn = styled.button`
     &:hover, :focus {
         color:  var(--dark-blue-color);
     }
-
-
 `;

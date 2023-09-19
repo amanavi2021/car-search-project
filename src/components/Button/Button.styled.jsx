@@ -21,6 +21,5 @@ export const Btn = styled.button`
     &:hover, :focus {
         background-color:  var(--dark-blue-color);
     }
-
    
 `;

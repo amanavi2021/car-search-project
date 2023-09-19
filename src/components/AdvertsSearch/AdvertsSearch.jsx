@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { updateFilters } from 'redux/adverts/advertsSlice';
 import makes from './makes.json';
-import { Container } from "./AdvertsSearch.styled";
+import {
+    Container, SearchForm, Btn, FilterInput, FormElement, GroupInput, TextLabel,
+FilterInputLeft, FilterInputRight} from "./AdvertsSearch.styled";
 
 export default function AdvertsSearch() {
  
@@ -29,23 +31,22 @@ export default function AdvertsSearch() {
         dispatch(updateFilters(values));
     };
 
-  
-   
-
-
     return (
         <Container>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="make">Car brand</label>
-                <input list="car-makes" id="brand" name="make" autoComplete="off" placeholder="Enter the text"/>
+            <SearchForm onSubmit={handleSubmit}>
+                <FormElement>
+                <TextLabel htmlFor="make">Car brand</TextLabel>
+                <FilterInput list="car-makes" id="brand" name="make" autoComplete="off" placeholder="Enter the text"/>
                 <datalist id="car-makes">
                     {makes.map(make => (<option key={nanoid()}
                         value={make}></option>
                     ))}    
                 </datalist>
-
-                <label htmlFor="price">Price/ 1 hour </label>
-                <input list="car-prices" id="price" name="price" autoComplete="off" placeholder="To $"/>
+                </FormElement>
+                
+                <FormElement>
+                <TextLabel htmlFor="price">Price/ 1 hour </TextLabel>
+                <FilterInput list="car-prices" id="price" name="price" autoComplete="off" placeholder="To $"/>
                 <datalist id="car-prices">
                     {prices.map(price => (<option key={nanoid()}
                         value={price}></option>))}
@@ -53,13 +54,20 @@ export default function AdvertsSearch() {
                     <option value="40"></option>
                     <option value="50"></option> */}
                 </datalist>
-                <label htmlFor="mileageFrom">Сar mileage / km</label>
-                <input type='number' id="mileageFrom" name="mileageFrom" autoComplete="off" placeholder="From"/>
-                <input type='number' id="mileageTo" name="mileageTo" autoComplete="off" placeholder="To"/>
-                <button type="submit">
+                </FormElement>
+                  
+                <FormElement>
+                    <TextLabel htmlFor="mileageFrom">Сar mileage / km</TextLabel>
+                <GroupInput>         
+                <FilterInputLeft type='number' id="mileageFrom" name="mileageFrom" autoComplete="off" placeholder="From" />
+                <FilterInputRight type='number' id="mileageTo" name="mileageTo" autoComplete="off" placeholder="To"/>
+                </GroupInput>
+                </FormElement>               
+                
+               <Btn type="submit">
                     Search
-                </button>
-            </form>
+                </Btn>
+            </SearchForm>
         </Container>
     )
 }

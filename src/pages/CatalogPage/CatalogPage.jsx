@@ -29,8 +29,10 @@ export default function CatalogPage() {
 
     const advertsAll = useSelector(selectorAdverts);
     const filters = useSelector(selectorFilters);
-    const useFilters = filters.make !== "" & filters.price !== 0 & filters.mileageFrom !== 0 & filters.mileageTo !== 0;
-    console.log("useFilters", useFilters);
+    const useFilters = filters.make !== "" || filters.price !== "" || filters.mileageFrom !== "" || filters.mileageTo !== "";
+    // console.log('filters.make !== ""', filters.make !== "");
+    // console.log('filters.price !== 0', filters.price !== 0);
+     console.log("useFilters", useFilters);
     let filteredAdverts = [];
     if (useFilters) {
         filteredAdverts = advertsAll.filter(advert => {
@@ -39,28 +41,28 @@ export default function CatalogPage() {
 
         return (
             (filters.make === advert.make || filters.make === "")
-             &&
-             (price >= filters.price || filters.price === 0)
-            // && (filters.mileageFrom <= advert.mileage && advert.mileage <= filters.mileageTo)
+            &&
+             (price <= filters.price || filters.price === "")
+             && ((filters.mileageFrom <= advert.mileage || filters.mileageFrom === "")                
+             && (advert.mileage <= filters.mileageTo || filters.mileageFrom === ""))
         )
     });
 
-    console.log("filtredAdverts", filteredAdverts); 
-
-         
-     }
+     console.log("filtredAdverts", filteredAdverts);          
+    }
     
 
     const actualAdverts = filteredAdverts.length ? filteredAdverts : currentAdverts;
-    console.log("actualAdverts", actualAdverts);
+    // console.log("actualAdverts", actualAdverts);
 
     return (
         <Container>
             <AdvertsSearch />
             <AdvertsList adverts={actualAdverts}/>
-            {showLoadMore && !filteredAdverts.length && <Btn type="button" onClick={handleClick}>
+            {showLoadMore & !filteredAdverts.length ? (<Btn type="button" onClick={handleClick}>
                 Load more
-            </Btn>}
+            </Btn>) :
+            (<p></p>)}
             
         </Container>
     )
