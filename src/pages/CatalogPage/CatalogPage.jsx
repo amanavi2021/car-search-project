@@ -28,21 +28,37 @@ export default function CatalogPage() {
     const currentAdverts = useSelector(selectorCurrentAdverts);
 
     const advertsAll = useSelector(selectorAdverts);
-    const filtres = useSelector(selectorFilters);
-    const filtredAdverts = advertsAll.filter(advert => {
-        return (filtres.make === advert.make)
+    const filters = useSelector(selectorFilters);
+    const useFilters = filters.make !== "" & filters.price !== 0 & filters.mileageFrom !== 0 & filters.mileageTo !== 0;
+    console.log("useFilters", useFilters);
+    let filteredAdverts = [];
+    if (useFilters) {
+        filteredAdverts = advertsAll.filter(advert => {
+        const price = Number(advert.rentalPrice.replace("$", ''));
+        // console.log("price", Number(advert.rentalPrice.replace("$", '')));
+
+        return (
+            (filters.make === advert.make || filters.make === "")
+             &&
+             (price >= filters.price || filters.price === 0)
+            // && (filters.mileageFrom <= advert.mileage && advert.mileage <= filters.mileageTo)
+        )
     });
 
-    console.log("filtredAdverts", filtredAdverts);
+    console.log("filtredAdverts", filteredAdverts); 
 
-    const actualAdverts = filtredAdverts.length ? filtredAdverts : currentAdverts;
+         
+     }
+    
+
+    const actualAdverts = filteredAdverts.length ? filteredAdverts : currentAdverts;
     console.log("actualAdverts", actualAdverts);
 
     return (
         <Container>
             <AdvertsSearch />
             <AdvertsList adverts={actualAdverts}/>
-            {showLoadMore && <Btn type="button" onClick={handleClick}>
+            {showLoadMore && !filteredAdverts.length && <Btn type="button" onClick={handleClick}>
                 Load more
             </Btn>}
             

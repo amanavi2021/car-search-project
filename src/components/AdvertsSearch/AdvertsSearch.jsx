@@ -1,5 +1,4 @@
 
-
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { updateFilters } from 'redux/adverts/advertsSlice';
@@ -23,8 +22,8 @@ export default function AdvertsSearch() {
         const values = {
             make: inputs.make.value,
             price: inputs.price.value,  
-            milleageFrom: inputs.milleageFrom.value,
-            milleageTo: inputs.milleageTo.value,
+            mileageFrom: inputs.mileageFrom.value,
+            mileageTo: inputs.mileageTo.value,
         }
         // console.log("make", e.target.elements.make.value);
         dispatch(updateFilters(values));
@@ -54,9 +53,9 @@ export default function AdvertsSearch() {
                     <option value="40"></option>
                     <option value="50"></option> */}
                 </datalist>
-                <label htmlFor="milleageFrom">Сar mileage / km</label>
-                <input type='number' id="milleageFrom" name="milleageFrom" autoComplete="off" placeholder="From"/>
-                <input type='number' id="milleageTo" name="milleageTo" autoComplete="off" placeholder="To"/>
+                <label htmlFor="mileageFrom">Сar mileage / km</label>
+                <input type='number' id="mileageFrom" name="mileageFrom" autoComplete="off" placeholder="From"/>
+                <input type='number' id="mileageTo" name="mileageTo" autoComplete="off" placeholder="To"/>
                 <button type="submit">
                     Search
                 </button>
