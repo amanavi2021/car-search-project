@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectorTotal, selectorCurrentAdverts } from "redux/adverts/selectors";
+import { selectorTotal, selectorCurrentAdverts, selectorFilters, selectorAdverts } from "redux/adverts/selectors";
 import { getAdverts, getAdvertsByPage } from "redux/adverts/operations";
 import { useDispatch } from "react-redux"; 
 import AdvertsList from "components/AdvertsList";
@@ -13,9 +13,7 @@ export default function CatalogPage() {
     const total = useSelector(selectorTotal);
     const currentAdvertsCount = useSelector(selectorCurrentAdverts).length;
     const showLoadMore = total > currentAdvertsCount;
-    console.log("total", total);
-    console.log("count", currentAdvertsCount);
-    console.log(showLoadMore);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,10 +25,23 @@ export default function CatalogPage() {
         dispatch(getAdvertsByPage({page}))
     };
 
+    const currentAdverts = useSelector(selectorCurrentAdverts);
+
+    const advertsAll = useSelector(selectorAdverts);
+    const filtres = useSelector(selectorFilters);
+    const filtredAdverts = advertsAll.filter(advert => {
+        return (filtres.make === advert.make)
+    });
+
+    console.log("filtredAdverts", filtredAdverts);
+
+    const actualAdverts = filtredAdverts.length ? filtredAdverts : currentAdverts;
+    console.log("actualAdverts", actualAdverts);
+
     return (
         <Container>
             <AdvertsSearch />
-            <AdvertsList />
+            <AdvertsList adverts={actualAdverts}/>
             {showLoadMore && <Btn type="button" onClick={handleClick}>
                 Load more
             </Btn>}

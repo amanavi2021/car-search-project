@@ -38,7 +38,7 @@ export default function AdvertListItem({ advert, isFavorite }) {
     const city = getCity(address);
     // const favotiteAdverts = useSelector(selectorFavoriteAdverts);
     // const isFavorite = favotiteAdverts.includes(advert);
-    console.log("isFavorite", isFavorite);
+    // console.log("isFavorite", isFavorite);
 
     const dispatch = useDispatch();
 

@@ -2,15 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectorFavoriteAdverts } from "redux/adverts/selectors";
 import AdvertListItem from "components/AdvertListItem";
-import { List } from "../../components/AdvertsList/AdvertList.styled";
+import { Container, List } from "./FavoritesPage.styled";
 
 export default function FavoritesPage() {
     
     const favoriteAdverts = useSelector(selectorFavoriteAdverts);
 
     return (
-        <div>
-            <p>Favorites</p>
+        <Container>
         <List>
                 {favoriteAdverts.map(advert => (
                     <AdvertListItem
@@ -18,10 +17,8 @@ export default function FavoritesPage() {
                         advert={advert}
                         isFavorite={favoriteAdverts.includes(advert)} />
             ))}
-            
-
         </List>
-        </div>
+        </Container>
        
     )
 }

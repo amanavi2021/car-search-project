@@ -8,6 +8,8 @@ export const selectorFavoriteAdverts = state => state.adverts.favoriteItems;
 
 export const selectorIsLoading = state => state.adverts.isLoading;
 
-export const selectorFilter = state => state.adverts.error;
+export const selectorError = state => state.adverts.error;
 
 export const selectorTotal = state => state.adverts.total;
+
+export const selectorFilters = state => state.adverts.filters;

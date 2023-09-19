@@ -1,4 +1,10 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled";   
+
+export const Container = styled.div`
+    width: 1184px;
+    margin-left: auto;
+    margin-right:auto;
+`;
 
 export const List = styled.ul`
     display: grid;

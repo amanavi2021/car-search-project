@@ -8,6 +8,7 @@ const initialState = {
   total: 0,
   isLoading: false,
   error: null,
+  filters: { make: '', price: 0, millageFrom: 0, millageTo: 0 },
 };
 
 const toggleFavorite = (state, action) => {
@@ -26,6 +27,12 @@ const advertsSlice = createSlice({
   initialState,
   reducers: {
     setFavorite: toggleFavorite,
+    updateFilters: (state, action) => {
+      state.filters.make = action.payload.make;
+      state.filters.price = action.payload.price;
+      state.filters.millageFrom = action.payload.millageFrom;
+      state.filters.millageTo = action.payload.millageTo;
+    },
   },
   extraReducers: builder =>
     builder
@@ -61,4 +68,4 @@ const advertsSlice = createSlice({
 
 export const advertsReducer = advertsSlice.reducer;
 
-export const { setFavorite } = advertsSlice.actions;
+export const { setFavorite, updateFilters } = advertsSlice.actions;
