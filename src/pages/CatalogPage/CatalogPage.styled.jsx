@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
 
+export const Container = styled.div`
+    width: 1184px;
+    margin-left: auto;
+    margin-right:auto;
+
+`;
+
 export const Btn = styled.button`
     display: flex;
     flex-direction: row;
@@ -7,6 +14,8 @@ export const Btn = styled.button`
     align-items: center;
     margin-top: 100px;
     margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: "Manrope";
     font-size: 16px;
     font-weight: 500;

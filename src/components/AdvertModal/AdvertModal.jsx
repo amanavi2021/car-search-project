@@ -1,4 +1,5 @@
 // import { Link } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import getCity from 'utils/getCity';
 import getCountry from 'utils/getCountry';
 import {
@@ -13,7 +14,8 @@ import {
     RentalConditionsList,
     ItemValue,
     RentalConditionsListItem, 
-  LinkPhone
+  LinkPhone,
+  AccesAndFuncList
 } from './AdvertModal.styled';
 
 export default function AdvertModal({ advert }) {
@@ -31,8 +33,8 @@ export default function AdvertModal({ advert }) {
     description,
     fuelConsumption,
     engineSize,
-    // accessories,
-    // functionalities,
+    accessories,
+    functionalities,
     rentalPrice,
     // rentalCompany,
     address,
@@ -72,6 +74,12 @@ export default function AdvertModal({ advert }) {
 
         <div>
           <InfoTitle>Accessories and functionalities:</InfoTitle>
+          <AccesAndFuncList>
+            {accessories.map(accessory => (<li key={nanoid()}>{accessory}</li>))}
+          </AccesAndFuncList>
+          <AccesAndFuncList>
+            {functionalities.map(functionality=> (<li key={nanoid()}>{functionality}</li>))}
+          </AccesAndFuncList>
         </div>
         <div>
           <InfoTitle>Rental Conditions:</InfoTitle>

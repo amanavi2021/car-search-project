@@ -109,3 +109,14 @@ export const LinkPhone = styled(Link)`
     }
 `;
 
+export const AccesAndFuncList = styled.ul`
+  display: flex;
+  gap:12px;
+  font-size: 12px;
+  color: var(--grey-color);
+  line-height: calc(18/12);
+  margin-top: 4px;
+
+`;
+
+

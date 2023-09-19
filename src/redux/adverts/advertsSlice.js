@@ -4,14 +4,29 @@ import { getAdverts, getAdvertsByPage } from './operations';
 const initialState = {
   items: [],
   currentItems: [],
+  favoriteItems: [],
   total: 0,
   isLoading: false,
   error: null,
 };
 
+const toggleFavorite = (state, action) => {
+  const favoritesId = [...state.favoriteItems].map(advert => advert.id);
+  if (favoritesId.includes(action.payload.id)) {
+    state.favoriteItems = state.favoriteItems.filter(
+      advert => advert.id !== action.payload.id
+    );
+  } else {
+    state.favoriteItems = [action.payload, ...state.favoriteItems];
+  }
+};
+
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState,
+  reducers: {
+    setFavorite: toggleFavorite,
+  },
   extraReducers: builder =>
     builder
       .addCase(getAdverts.pending, state => {
@@ -30,10 +45,20 @@ const advertsSlice = createSlice({
         state.items = [];
         state.currentItems = [];
       })
+      .addCase(getAdvertsByPage.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(getAdvertsByPage.fulfilled, (state, action) => {
         state.currentItems = [...state.currentItems, ...action.payload];
         state.isLoading = false;
+      })
+      .addCase(getAdvertsByPage.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+        state.currentItems = [];
       }),
 });
 
 export const advertsReducer = advertsSlice.reducer;
+
+export const { setFavorite } = advertsSlice.actions;

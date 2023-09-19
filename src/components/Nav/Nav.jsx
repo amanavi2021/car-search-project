@@ -1,18 +1,18 @@
-import { NavLink } from "react-router-dom"; 
-import { Navigation } from "./Nav.styled";
+// import { NavLink } from "react-router-dom"; 
+import { Navigation, NavigateItem } from "./Nav.styled";
 
 export default function Nav() {
     return (
         <Navigation>
-             <NavLink to="/">
+             <NavigateItem to="/">
                 Home
-            </NavLink>    
-            <NavLink to="/catalog">
+            </NavigateItem>    
+            <NavigateItem to="/catalog">
                 Catalog
-            </NavLink>
-            <NavLink to="/favorites">
+            </NavigateItem>
+            <NavigateItem to="/favorites">
                 Favorites
-            </NavLink>
+            </NavigateItem>
         </Navigation>
     )
 }
