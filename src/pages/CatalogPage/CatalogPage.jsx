@@ -32,7 +32,7 @@ export default function CatalogPage() {
     const useFilters = filters.make !== "" || filters.price !== "" || filters.mileageFrom !== "" || filters.mileageTo !== "";
     // console.log('filters.make !== ""', filters.make !== "");
     // console.log('filters.price !== 0', filters.price !== 0);
-     console.log("useFilters", useFilters);
+    //  console.log("useFilters", useFilters);
     let filteredAdverts = [];
     if (useFilters) {
         filteredAdverts = advertsAll.filter(advert => {
@@ -48,18 +48,18 @@ export default function CatalogPage() {
         )
     });
 
-     console.log("filtredAdverts", filteredAdverts);          
+    //  console.log("filtredAdverts", filteredAdverts);          
     }
     
 
-    const actualAdverts = filteredAdverts.length ? filteredAdverts : currentAdverts;
+    const actualAdverts = useFilters ? filteredAdverts : currentAdverts;
     // console.log("actualAdverts", actualAdverts);
 
     return (
         <Container>
             <AdvertsSearch />
             <AdvertsList adverts={actualAdverts}/>
-            {showLoadMore & !filteredAdverts.length ? (<Btn type="button" onClick={handleClick}>
+            {showLoadMore & !useFilters ? (<Btn type="button" onClick={handleClick}>
                 Load more
             </Btn>) :
             (<p></p>)}

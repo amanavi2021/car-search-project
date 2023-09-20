@@ -42,7 +42,7 @@ export default function AdvertListItem({ advert, isFavorite }) {
     const country = getCountry(address);
     const city = getCity(address);
     const accessory = getAccessory(accessories);
-    console.log('acc', accessory);
+    // console.log('acc', accessory);
     // const favotiteAdverts = useSelector(selectorFavoriteAdverts);
     // const isFavorite = favotiteAdverts.includes(advert);
     // console.log("isFavorite", isFavorite);
