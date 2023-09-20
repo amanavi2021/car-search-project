@@ -2,20 +2,22 @@
 import { nanoid } from 'nanoid';
 import getCity from 'utils/getCity';
 import getCountry from 'utils/getCountry';
+import getShortName from 'utils/getShortName';
 import {
   Container,
   ContainerInfo,
   ImageAuto,
   TitleAuto,
   Model,
-  InfoAuto,
+ InfoAuto,
   Description,
     InfoTitle,
     RentalConditionsList,
     ItemValue,
     RentalConditionsListItem, 
   LinkPhone,
-  AccesAndFuncList
+  List, 
+  ListItem
 } from './AdvertModal.styled';
 
 export default function AdvertModal({ advert }) {
@@ -61,12 +63,19 @@ export default function AdvertModal({ advert }) {
             {make} <Model>{model}</Model>, {year}
           </TitleAuto>
           <InfoAuto>
-            <p>
-              {city} | {country} | Id: {id} | Year: {year} | Type: {type}
-            </p>
-            <p>
-              Fuel Consumption: {fuelConsumption} | Engine Size: {engineSize}
-            </p>
+    
+            <List>
+              <ListItem>{city}</ListItem>
+              <ListItem>{country}</ListItem>
+              <ListItem>Id: {id}</ListItem>
+              <ListItem>Year: {year}</ListItem>
+              <ListItem>Type: {type}</ListItem>
+            </List>
+            <List>
+              <ListItem>Fuel Consumption: {fuelConsumption}</ListItem>
+              <ListItem>Fuel Engine Size: {engineSize}</ListItem>
+
+            </List>
           </InfoAuto>
 
           <Description>{description}</Description>
@@ -74,12 +83,12 @@ export default function AdvertModal({ advert }) {
 
         <div>
           <InfoTitle>Accessories and functionalities:</InfoTitle>
-          <AccesAndFuncList>
-            {accessories.map(accessory => (<li key={nanoid()}>{accessory}</li>))}
-          </AccesAndFuncList>
-          <AccesAndFuncList>
-            {functionalities.map(functionality=> (<li key={nanoid()}>{functionality}</li>))}
-          </AccesAndFuncList>
+          <List>
+            {accessories.map(accessory => (<ListItem key={nanoid()}>{getShortName(accessory)}</ListItem>))}
+          </List>
+          <List>
+            {functionalities.map(functionality=> (<ListItem key={nanoid()}>{getShortName(functionality)}</ListItem>))}
+          </List>
         </div>
         <div>
           <InfoTitle>Rental Conditions:</InfoTitle>

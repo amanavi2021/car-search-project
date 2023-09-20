@@ -4,10 +4,15 @@ import Modal from "components/Modal";
 import AdvertModal from "components/AdvertModal/AdvertModal";
 import getCity from "utils/getCity";
 import getCountry from "utils/getCountry";
+import getAccessory from "utils/getAccessory";
 import { setFavorite } from "redux/adverts/advertsSlice";
 // import { selectorFavoriteAdverts } from "redux/adverts/selectors";
 import Button from "components/Button";
-import { CatalogItem, Container, ImageAuto, TitleAuto, Model, InfoAuto, FavoriteBtn, Heart, FavoriteHeart } from "./AdvertListItem.styled";
+import {
+    CatalogItem, Container, ImageAuto, TitleAuto, Model,
+    // InfoAuto,
+    FavoriteBtn, Heart, FavoriteHeart, List, ListItem, InfoAuto
+} from "./AdvertListItem.styled";
 import svg from "../../images/sprite.svg";
 
 export default function AdvertListItem({ advert, isFavorite }) {
@@ -25,7 +30,7 @@ export default function AdvertListItem({ advert, isFavorite }) {
         // description,
         // fuelConsumption,
         // engineSize,
-        // accessories,
+        accessories,
         // functionalities,
         rentalPrice,
         rentalCompany,
@@ -36,6 +41,8 @@ export default function AdvertListItem({ advert, isFavorite }) {
     
     const country = getCountry(address);
     const city = getCity(address);
+    const accessory = getAccessory(accessories);
+    console.log('acc', accessory);
     // const favotiteAdverts = useSelector(selectorFavoriteAdverts);
     // const isFavorite = favotiteAdverts.includes(advert);
     // console.log("isFavorite", isFavorite);
@@ -71,20 +78,19 @@ export default function AdvertListItem({ advert, isFavorite }) {
                     <p>{rentalPrice}</p>
                 </TitleAuto>
                 <InfoAuto>
-                <p>
-                    <span>{city} | </span>
-                    <span>{country} | </span>
-                    <span>{rentalCompany} | </span>
-
-                </p>
-
-                <p>
-                    <span>{type} | </span>
-                    <span>{model} | </span>
-                    <span>{id} | </span>
-                    {/* Power liftgate */}
-                    
-                </p>
+                 <List>
+                        <ListItem>{city}</ListItem> 
+                        <ListItem>{country}</ListItem> 
+                        <ListItem>{rentalCompany}</ListItem> 
+                        
+                </List>
+               
+                    <List>
+                        <ListItem>{type}</ListItem>
+                        <ListItem>{model}</ListItem>
+                        <ListItem>{id}</ListItem>
+                        <ListItem>{accessory}</ListItem>
+                </List>
                 </InfoAuto>
                
                 <Button text={"Learn more"} onClick={toggleModal} />

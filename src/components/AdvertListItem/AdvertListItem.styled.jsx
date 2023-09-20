@@ -29,12 +29,12 @@ export const Model = styled.span`
   color: var(--blue-color);
 `;
 
-export const InfoAuto = styled.div`
-  font-size: 12px;
-  color: var(--grey-color);
-  line-height: calc(18/12);
-  margin-top: 8px;
-  margin-bottom: 28px;
+ export const InfoAuto = styled.div`
+//   font-size: 12px;
+//   color: var(--grey-color);
+//   line-height: calc(18/12);
+   margin-top: 8px;
+   margin-bottom: 28px;
 `;
 
 export const FavoriteBtn = styled.button`
@@ -72,4 +72,28 @@ export const FavoriteHeart = styled.svg`
 
 export const CatalogItem = styled.li`
   width: 274px;
+`;
+
+export const List = styled.ul`
+  display: flex;
+  align-items: baseline;
+  gap:8px;
+  font-size: 12px;
+  color: var(--grey-color);
+  line-height: calc(18/12);
+  margin-top: 4px;
+
+`;
+
+export const ListItem = styled.li`
+  &:not(:last-child)::after{
+    content: "";
+    height: 16px;
+    width: 1px;
+    display: inline-block;
+    background-color: var(--after-grey-color);
+    margin-left: 5px; 
+    
+
+  }
 `;

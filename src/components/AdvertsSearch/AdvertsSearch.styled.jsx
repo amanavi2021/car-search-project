@@ -5,6 +5,8 @@ export const Container = styled.div`
     margin-right:auto;
     margin-bottom: 50px;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 `;
 
 
@@ -35,7 +37,9 @@ export const SearchForm = styled.form`
     display: flex;
     gap: 18px;
     align-items:end;
-    width: 859px;
+    /* width: 859px; */
+    margin-left:auto;
+    margin-right: auto;
 `;
 
 export const FormElement = styled.div`

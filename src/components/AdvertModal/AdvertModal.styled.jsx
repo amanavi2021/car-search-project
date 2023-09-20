@@ -46,11 +46,11 @@ export const Model = styled.span`
   color: var(--blue-color);
 `;
 
-export const InfoAuto = styled.div`
-  font-size: 12px;
-  color: var(--grey-color);
-  line-height: calc(18/12);
-  margin-top: 8px;
+ export const InfoAuto = styled.div`
+//   font-size: 12px;
+//   color: var(--grey-color);
+//   line-height: calc(18/12);
+   margin-top: 8px;
 `;
 
 export const Description = styled.p`
@@ -109,8 +109,9 @@ export const LinkPhone = styled(Link)`
     }
 `;
 
-export const AccesAndFuncList = styled.ul`
+export const List = styled.ul`
   display: flex;
+  align-items: baseline;
   gap:12px;
   font-size: 12px;
   color: var(--grey-color);
@@ -119,4 +120,15 @@ export const AccesAndFuncList = styled.ul`
 
 `;
 
+export const ListItem = styled.li`
+  &:not(:last-child)::after{
+    content: "";
+    height: 16px;
+    width: 1px;
+    display: inline-block;
+    background-color: var(--after-grey-color);
+    margin-left: 9px; 
+    
 
+  }
+`;
