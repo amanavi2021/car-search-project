@@ -15,14 +15,14 @@ export const NavigateItem = styled(NavLink)`
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 &:hover {
-    color: var(--green-color);
+    color: var(--gold-color);
 }
 `;
 
 export const ActiveNavigateItem = styled(NavLink)`
    font-size: 20px;
    font-weight: 700;
-   color: var(--green-color);
+   color: var(--gold-color);
    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 &:hover {

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import noCarImage from "../../images/no-cars.webp";
 
 export const Container = styled.div`
     width: 1184px;
@@ -28,4 +29,29 @@ export const Btn = styled.button`
     &:hover, :focus {
         color:  var(--dark-blue-color);
     }
+`;
+
+export const EmptyPage = styled.div`
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const EmptyImage= styled.div`
+    width: 1280px;
+    height: 768px;
+    margin-top: 100px;
+    background-image: url(${noCarImage});
+    background-size: contain;
+    background-repeat:no-repeat;
+`;
+
+export const Text = styled.p`
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.47;
+    text-align: center;
+    color: var(--dark-grey-color);
 `;

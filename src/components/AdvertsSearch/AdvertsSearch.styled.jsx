@@ -37,7 +37,6 @@ export const SearchForm = styled.form`
     display: flex;
     gap: 18px;
     align-items:end;
-    /* width: 859px; */
     margin-left:auto;
     margin-right: auto;
 `;
@@ -61,25 +60,10 @@ export const FilterInput = styled.input`
     color: var(--black-color);
     border: none;
 
-    /* &::placeholder { */
-        /* padding: 14px 18px; */
-        /* color: var(--black-color); */
-        /* font-family: 'Manrope', sans-serif;;
-        font-size: 18px;
-        font-weight: 500;
-        line-height: calc(20/18); */
-
-    /* };  */
-    /* &:focus-visible{
-        border-color: transparent;
-    } */
-    
-
 `;
 
 export const GroupInput = styled.div`
     display: flex;
-    /* width: 320px; */
 `;
 
 export const TextLabel = styled.label`
@@ -103,7 +87,6 @@ export const FilterInputLeft = styled.input`
     border-bottom-left-radius: 14px;
     background-color: #F7F7FB;
     color: var(--black-color);
-    /* border: none; */
     border-right-color: var(--grey-color);
     border-top-color: transparent;
     border-bottom-color: transparent;
@@ -124,9 +107,5 @@ export const FilterInputLeft = styled.input`
     border-bottom-right-radius: 14px;
     background-color: #F7F7FB;
     color: var(--black-color);
-    /* border: none; */
     border: none;
-    /* border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-right-color: transparent; */
     `;

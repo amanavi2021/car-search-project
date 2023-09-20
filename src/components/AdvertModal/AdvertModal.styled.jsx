@@ -3,20 +3,11 @@ import styled from "@emotion/styled";
 
 
 export const Container = styled.div`
-    /* width: 100%;
-    height: 100%; */
-    width: 461px ;
-    /* min-height: 50px; */
+    width: 461px ; 
     padding: 40px;
     margin-left: auto;
     margin-right: auto;
-    /* overflow-y: auto;
-    overflow-x: hidden; */
-     /* -ms-overflow-style: none; */
-    /* scrollbar-width: none; */
-   /* &::-webkit-scrollbar {
-  display: none; */
-/* } */
+
 
 `;
 
@@ -47,9 +38,6 @@ export const Model = styled.span`
 `;
 
  export const InfoAuto = styled.div`
-//   font-size: 12px;
-//   color: var(--grey-color);
-//   line-height: calc(18/12);
    margin-top: 8px;
 `;
 
@@ -129,6 +117,5 @@ export const ListItem = styled.li`
     background-color: var(--after-grey-color);
     margin-left: 9px; 
     
-
   }
 `;

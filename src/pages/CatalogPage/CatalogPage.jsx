@@ -6,7 +6,7 @@ import { getAdverts, getAdvertsByPage } from "redux/adverts/operations";
 import { useDispatch } from "react-redux"; 
 import AdvertsList from "components/AdvertsList";
 import AdvertsSearch from "components/AdvertsSearch";
-import { Container, Btn } from "./CatalogPage.styled";
+import { Container, Btn, EmptyImage, EmptyPage, Text} from "./CatalogPage.styled";
 
 export default function CatalogPage() {
     const [page, setPage] = useState(2);
@@ -30,15 +30,12 @@ export default function CatalogPage() {
     const advertsAll = useSelector(selectorAdverts);
     const filters = useSelector(selectorFilters);
     const useFilters = filters.make !== "" || filters.price !== "" || filters.mileageFrom !== "" || filters.mileageTo !== "";
-    // console.log('filters.make !== ""', filters.make !== "");
-    // console.log('filters.price !== 0', filters.price !== 0);
-    //  console.log("useFilters", useFilters);
+    
     let filteredAdverts = [];
     if (useFilters) {
         filteredAdverts = advertsAll.filter(advert => {
         const price = Number(advert.rentalPrice.replace("$", ''));
-        // console.log("price", Number(advert.rentalPrice.replace("$", '')));
-
+       
         return (
             (filters.make === advert.make || filters.make === "")
             &&
@@ -47,22 +44,26 @@ export default function CatalogPage() {
              && (advert.mileage <= filters.mileageTo || filters.mileageFrom === ""))
         )
     });
-
-    //  console.log("filtredAdverts", filteredAdverts);          
-    }
     
+    };   
 
     const actualAdverts = useFilters ? filteredAdverts : currentAdverts;
-    // console.log("actualAdverts", actualAdverts);
 
     return (
         <Container>
             <AdvertsSearch />
-            <AdvertsList adverts={actualAdverts}/>
+            {actualAdverts.length ? (<AdvertsList adverts={actualAdverts} />) :
+                (
+                    <EmptyPage>
+                    <Text>Sorry! No such cars there</Text>
+                    <EmptyImage/>
+                    </EmptyPage>
+                    
+                )}            
             {showLoadMore & !useFilters ? (<Btn type="button" onClick={handleClick}>
                 Load more
             </Btn>) :
-            (<p></p>)}
+                <p></p>}
             
         </Container>
     )

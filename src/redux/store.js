@@ -28,7 +28,6 @@ const middleware = [
 
 export const store = configureStore({
   reducer: {
-    // adverts: advertsReducer,
     adverts: persistReducer(advertsPersistConfig, advertsReducer),
   },
   middleware,

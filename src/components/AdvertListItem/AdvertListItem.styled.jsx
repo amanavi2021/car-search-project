@@ -30,9 +30,6 @@ export const Model = styled.span`
 `;
 
  export const InfoAuto = styled.div`
-//   font-size: 12px;
-//   color: var(--grey-color);
-//   line-height: calc(18/12);
    margin-top: 8px;
    margin-bottom: 28px;
 `;
@@ -50,11 +47,7 @@ border: none;
 outline: none;
 cursor: pointer;
 background-color: transparent;
-/* color:  var(--black-color); */
 transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
- /* &:hover, :focus {
-        color:  var(--dark-blue-color);
-    } */
 
 `;
 

@@ -1,5 +1,3 @@
-// import { createSelector } from '@reduxjs/toolkit';
-
 export const selectorAdverts = state => state.adverts.items;
 
 export const selectorCurrentAdverts = state => state.adverts.currentItems;

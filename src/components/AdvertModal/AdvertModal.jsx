@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import getCity from 'utils/getCity';
 import getCountry from 'utils/getCountry';
@@ -9,15 +8,15 @@ import {
   ImageAuto,
   TitleAuto,
   Model,
- InfoAuto,
+  InfoAuto,
   Description,
-    InfoTitle,
-    RentalConditionsList,
-    ItemValue,
-    RentalConditionsListItem, 
+  InfoTitle,
+  RentalConditionsList,
+  ItemValue,
+  RentalConditionsListItem,
   LinkPhone,
-  List, 
-  ListItem
+  List,
+  ListItem,
 } from './AdvertModal.styled';
 
 export default function AdvertModal({ advert }) {
@@ -38,7 +37,6 @@ export default function AdvertModal({ advert }) {
     accessories,
     functionalities,
     rentalPrice,
-    // rentalCompany,
     address,
     rentalConditions,
     mileage,
@@ -51,8 +49,8 @@ export default function AdvertModal({ advert }) {
 
   const reg = /(?=\B(?:\d{3})+(?!\d))/g;
   const millageChanged = mileage.toString().replace(reg, ',');
-  
-    const phoneNumber = `tel:+380730000000`;
+
+  const phoneNumber = `tel:+380730000000`;
 
   return (
     <Container>
@@ -63,7 +61,6 @@ export default function AdvertModal({ advert }) {
             {make} <Model>{model}</Model>, {year}
           </TitleAuto>
           <InfoAuto>
-    
             <List>
               <ListItem>{city}</ListItem>
               <ListItem>{country}</ListItem>
@@ -74,7 +71,6 @@ export default function AdvertModal({ advert }) {
             <List>
               <ListItem>Fuel Consumption: {fuelConsumption}</ListItem>
               <ListItem>Fuel Engine Size: {engineSize}</ListItem>
-
             </List>
           </InfoAuto>
 
@@ -84,10 +80,14 @@ export default function AdvertModal({ advert }) {
         <div>
           <InfoTitle>Accessories and functionalities:</InfoTitle>
           <List>
-            {accessories.map(accessory => (<ListItem key={nanoid()}>{getShortName(accessory)}</ListItem>))}
+            {accessories.map(accessory => (
+              <ListItem key={nanoid()}>{getShortName(accessory)}</ListItem>
+            ))}
           </List>
           <List>
-            {functionalities.map(functionality=> (<ListItem key={nanoid()}>{getShortName(functionality)}</ListItem>))}
+            {functionalities.map(functionality => (
+              <ListItem key={nanoid()}>{getShortName(functionality)}</ListItem>
+            ))}
           </List>
         </div>
         <div>
@@ -96,8 +96,12 @@ export default function AdvertModal({ advert }) {
             <RentalConditionsListItem>
               {minAgeArray[0]}: <ItemValue>{minAgeArray[1]}</ItemValue>
             </RentalConditionsListItem>
-            <RentalConditionsListItem> {rentalConditionsArray[1]}</RentalConditionsListItem>
-            <RentalConditionsListItem>{rentalConditionsArray[2]}</RentalConditionsListItem>
+            <RentalConditionsListItem>
+                {rentalConditionsArray[1]}
+            </RentalConditionsListItem>
+            <RentalConditionsListItem>
+              {rentalConditionsArray[2]}
+            </RentalConditionsListItem>
             <RentalConditionsListItem>
               Mileage: <ItemValue>{millageChanged}</ItemValue>
             </RentalConditionsListItem>
@@ -106,10 +110,8 @@ export default function AdvertModal({ advert }) {
             </RentalConditionsListItem>
           </RentalConditionsList>
         </div>
-          </ContainerInfo>
-          <LinkPhone to={phoneNumber}>
-              Rental car
-          </LinkPhone>
+      </ContainerInfo>
+      <LinkPhone to={phoneNumber}>Rental car</LinkPhone>
     </Container>
   );
 }
