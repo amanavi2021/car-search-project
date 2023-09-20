@@ -23,7 +23,7 @@ export default function FavoritesPage() {
             )
                 :
         (<EmptyPage>
-                    <Text>Sorry! There is no one adverts in favorites </Text>
+                    <Text>There is no one adverts in favorites </Text>
                     <EmptyImage/>
                     </EmptyPage>)}
             

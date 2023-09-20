@@ -9,7 +9,6 @@ export const Container = styled.div`
     justify-content: center;
 `;
 
-
 export const Btn = styled.button`
     display: flex;
     flex-direction: row;
@@ -77,7 +76,7 @@ export const FilterInputLeft = styled.input`
     box-sizing: border-box;
     height: 48px;
     width: 160px;
-    padding: 14px 18px;
+    padding-left: 64px;
     font-size: 18px;
     font-family: 'Manrope', sans-serif;;
     font-size: 18px;
@@ -97,7 +96,7 @@ export const FilterInputLeft = styled.input`
     box-sizing: border-box;
     height: 48px;
     width: 160px;
-    padding: 14px 18px;
+    padding-left: 45px;
     font-size: 18px;
     font-family: 'Manrope', sans-serif;;
     font-size: 18px;
@@ -109,3 +108,19 @@ export const FilterInputLeft = styled.input`
     color: var(--black-color);
     border: none;
     `;
+
+export const Wrapper = styled.div`
+        position: relative;
+    `;
+
+export const Placeholder = styled.span`
+    position: absolute;
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20/18);
+    left: 18px;
+    top: 14px;
+  `;
+        

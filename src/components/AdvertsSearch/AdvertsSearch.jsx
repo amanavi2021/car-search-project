@@ -12,6 +12,9 @@ import {
   TextLabel,
   FilterInputLeft,
   FilterInputRight,
+  Wrapper, 
+  Placeholder
+
 } from './AdvertsSearch.styled';
 
 export default function AdvertsSearch() {
@@ -52,7 +55,6 @@ export default function AdvertsSearch() {
             ))}
           </datalist>
         </FormElement>
-
         <FormElement>
           <TextLabel htmlFor="price">Price/ 1 hour </TextLabel>
           <FilterInput
@@ -68,24 +70,27 @@ export default function AdvertsSearch() {
             ))}
           </datalist>
         </FormElement>
-
         <FormElement>
           <TextLabel htmlFor="mileageFrom">Сar mileage / km</TextLabel>
           <GroupInput>
-            <FilterInputLeft
+            <Wrapper>
+             <FilterInputLeft
               type="number"
               id="mileageFrom"
               name="mileageFrom"
               autoComplete="off"
-              placeholder="From"
-            />
+              /> 
+            <Placeholder>From</Placeholder>
+            </Wrapper>
+            <Wrapper>
             <FilterInputRight
               type="number"
               id="mileageTo"
               name="mileageTo"
               autoComplete="off"
-              placeholder="To"
             />
+              <Placeholder>To</Placeholder>
+            </Wrapper>            
           </GroupInput>
         </FormElement>
 
