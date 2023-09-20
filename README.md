@@ -9,8 +9,7 @@ The application consists of 3 pages:
 ___________________
 ## 📚 Technologies
 
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](#) [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](#) [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#) [![Cloudinary](https://img.shields.io/badge/Cloudinary-2986cc?style=for-the-badge&logo=cloudinary&logoColor=white)](#)
-
+[![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)](#) [![Redux](https://img.shields.io/badge/Redux-green?logo=redux&logoColor=white)](#) [![Axios](https://img.shields.io/badge/Axios-red?logo=axios&logoColor=white)](#) [![Emotion (Styled components)](https://img.shields.io/badge/Emotion%20(Styled%20components)-pink)](#)
 ___________________
 
 ## Installation
