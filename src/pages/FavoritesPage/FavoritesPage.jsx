@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectorFavoriteAdverts } from "redux/adverts/selectors";
 import AdvertListItem from "components/AdvertListItem";
 import { Container, List } from "./FavoritesPage.styled";
+import {EmptyImage, EmptyPage, Text } from "pages/CatalogPage/CatalogPage.styled";
 
 export default function FavoritesPage() {
     
@@ -10,14 +11,23 @@ export default function FavoritesPage() {
 
     return (
         <Container>
-        <List>
+            {favoriteAdverts.length ? (
+             <List>
                 {favoriteAdverts.map(advert => (
                     <AdvertListItem
                         key={advert.id}
                         advert={advert}
                         isFavorite={favoriteAdverts.includes(advert)} />
             ))}
-        </List>
+          </List>
+            )
+                :
+        (<EmptyPage>
+                    <Text>Sorry! There is no one adverts in favorites </Text>
+                    <EmptyImage/>
+                    </EmptyPage>)}
+            
+       
         </Container>
        
     )
