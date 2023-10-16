@@ -1,4 +1,4 @@
-# Carware
+# <center>![Carware](./assets/lоgo.jpg "Carware")</center>
 
 This [Carware](https://amanavi2021.github.io/car-search-project) application is for a company that provides car rental services in Ukraine. 
 The application consists of 3 pages:
